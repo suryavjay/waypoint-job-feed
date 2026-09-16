@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+data/
+.env*
+*.sqlite*
+
+SETUP_STATUS.md

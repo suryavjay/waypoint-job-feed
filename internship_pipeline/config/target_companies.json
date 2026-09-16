@@ -1,0 +1,564 @@
+[
+  {
+    "name": "Google",
+    "group": "Big Tech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Meta",
+    "group": "Big Tech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Amazon",
+    "group": "Big Tech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Apple",
+    "group": "Big Tech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Microsoft",
+    "group": "Big Tech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Netflix",
+    "group": "Big Tech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Nvidia",
+    "group": "Big Tech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Palantir",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": [
+      {
+        "ats": "lever",
+        "board": "palantir"
+      }
+    ]
+  },
+  {
+    "name": "Databricks",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "databricks"
+      }
+    ]
+  },
+  {
+    "name": "Snowflake",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": [
+      {
+        "ats": "ashby",
+        "board": "snowflake"
+      }
+    ]
+  },
+  {
+    "name": "Stripe",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Airbnb",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Uber",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Lyft",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Roblox",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "DoorDash",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "doordashusa"
+      }
+    ]
+  },
+  {
+    "name": "Coinbase",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Cloudflare",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "cloudflare"
+      }
+    ]
+  },
+  {
+    "name": "Datadog",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "MongoDB",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Salesforce",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Adobe",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Atlassian",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "ServiceNow",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Cisco",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Oracle",
+    "group": "Tech & software",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Capital One",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Visa",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Mastercard",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "American Express",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "JPMorgan Chase",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Goldman Sachs",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Morgan Stanley",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Bank of America",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Citi",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Wells Fargo",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Bloomberg",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Fidelity",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Charles Schwab",
+    "group": "Finance & fintech",
+    "categories": [
+      "SWE",
+      "Data",
+      "ML / AI"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Jane Street",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "janestreet"
+      }
+    ]
+  },
+  {
+    "name": "Citadel",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Citadel Securities",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Two Sigma",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Hudson River Trading",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Optiver",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "optiverprivate"
+      }
+    ]
+  },
+  {
+    "name": "IMC",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "imc"
+      }
+    ]
+  },
+  {
+    "name": "DRW",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "drwuniversityjobs"
+      }
+    ]
+  },
+  {
+    "name": "Jump Trading",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Akuna Capital",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": []
+  },
+  {
+    "name": "SIG",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": []
+  },
+  {
+    "name": "Five Rings",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "fiveringsllc"
+      }
+    ]
+  },
+  {
+    "name": "Virtu",
+    "group": "Quant firms",
+    "categories": [
+      "Quant",
+      "SWE"
+    ],
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "virtu"
+      }
+    ]
+  }
+]
