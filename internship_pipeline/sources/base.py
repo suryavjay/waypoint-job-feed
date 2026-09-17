@@ -44,6 +44,7 @@ def ats_identity(url):
 def canonical_application_url(url):
     p=urlparse(str(url).strip());host=(p.hostname or '').lower()
     if host=='boards.greenhouse.io':host='job-boards.greenhouse.io'
+    if host=='www.google.com':host='google.com'
     path=p.path
     if host in ('jobs.lever.co','jobs.eu.lever.co','jobs.ashbyhq.com'):
         path=re.sub(r'/(?:apply|application)/?$','',path)

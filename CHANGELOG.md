@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-17 — Google link variants
+
+- Treat Google career links with and without `www` as the same application URL. Verified with a regression fixture; distinct requisition paths remain separate.
+
 ## 2026-09-17 — Conservative cross-board duplicate matching
 
 - Fixed San Francisco normalization; normalize location order, NYC/SF aliases and common US state spellings without collapsing different countries.

@@ -9,6 +9,9 @@ def listing(id,url,**extra):
 
 
 class DeduplicationTests(unittest.TestCase):
+    def test_google_www_link_variants(self):
+        self.assertEqual(identity_fields(listing('a','https://www.google.com/about/careers/applications/jobs/results/123'))[0],identity_fields(listing('b','https://google.com/about/careers/applications/jobs/results/123'))[0])
+
     def test_san_francisco_not_corrupted(self):
         self.assertEqual(normalized_location('San Francisco, CA'),'sanfranciscoca')
         self.assertEqual(normalized_location('San Fran, California, USA'),'sanfranciscoca')
