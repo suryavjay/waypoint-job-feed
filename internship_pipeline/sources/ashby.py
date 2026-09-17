@@ -16,7 +16,9 @@ def fetch(board,company):
     url=f'https://api.ashbyhq.com/posting-api/job-board/{board}?includeCompensation=true'
     result=SourceResult('ashby:'+board,'Ashby',url,authoritative=True)
     try:
-        if not re.fullmatch(r'[\w-]+',board):raise ValueError('Invalid Ashby board')
+        # Ashby uses domain-style board names too, e.g. persona.ai. Keep the
+        # value a single bounded path segment; no traversal/query/fragment.
+        if not re.fullmatch(r'[A-Za-z0-9](?:[A-Za-z0-9._-]{0,98}[A-Za-z0-9])?',board):raise ValueError('Invalid Ashby board')
         data=json.loads(fetch_url(url))
         if not isinstance(data.get('jobs'),list):raise ValueError('Missing Ashby jobs array')
         for raw in data['jobs']:

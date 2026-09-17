@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-17 — Domain-style Ashby boards
+
+- Accept valid dotted Ashby board names, restoring checks for `persona.ai` and `rivianvw.tech`.
+- Keep invalid paths, query strings, fragments and unbounded identifiers out of requests.
+- Verification: adapter tests for valid/invalid names; live public API checks returned 28 and 137 total jobs respectively before filtering to relevant Summer 2027 internships.
+- No schema change, scraper removal, or dependency change.
+
 ## 2026-09-17 — Internship scope and role classification
 
 - Exclude explicit new-grad, permanent, and mixed internship/full-time titles from discovery and the published public feed.
