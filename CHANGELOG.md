@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-17 — Recover intermittent source failures
+
+- Retry a read once, after one second, for network timeouts/resets and HTTP 502/503/504. Other errors, including 404 and rate limits, keep their existing failure behavior.
+- Public-address validation, redirect checks and bounded downloads remain in place. Exhausted retries still leave the source incomplete so it cannot close saved jobs.
+- Verification: simulated timeout recovery, bounded repeated failures, non-retried 4xx/rate-limit responses, download limits and private-address rejection.
+
 ## 2026-09-17 — Google link variants
 
 - Treat Google career links with and without `www` as the same application URL. Verified with a regression fixture; distinct requisition paths remain separate.

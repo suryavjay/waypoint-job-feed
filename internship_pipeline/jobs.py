@@ -14,6 +14,8 @@ import ipaddress
 import json
 import re
 import socket
+import time
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 
@@ -60,12 +62,18 @@ class _SafeRedirect(HTTPRedirectHandler):
 def fetch_url(url, *, max_bytes=MAX_BYTES):
     validate_public_url(url)
     request = Request(url, headers={"User-Agent": "InternshipPreparation/1.0 (read-only job verification)", "Accept": "application/json,text/html,text/plain"})
-    with build_opener(_SafeRedirect()).open(request, timeout=TIMEOUT) as response:
-        validate_public_url(response.url)
-        data = response.read(max_bytes + 1)
-        if len(data) > max_bytes:
-            raise ValueError("Response exceeds the bounded download limit")
-        return data.decode("utf-8", errors="replace")
+    for attempt in range(2):
+        try:
+            with build_opener(_SafeRedirect()).open(request, timeout=TIMEOUT) as response:
+                validate_public_url(response.url)
+                data = response.read(max_bytes + 1)
+                if len(data) > max_bytes:
+                    raise ValueError("Response exceeds the bounded download limit")
+                return data.decode("utf-8", errors="replace")
+        except (HTTPError, URLError, TimeoutError, ConnectionResetError) as error:
+            transient = error.code in (502,503,504) if isinstance(error,HTTPError) else isinstance(error,(TimeoutError,ConnectionResetError)) or isinstance(getattr(error,'reason',None),(TimeoutError,ConnectionResetError))
+            if attempt or not transient:raise
+            time.sleep(1)
 
 
 class _Text(HTMLParser):
