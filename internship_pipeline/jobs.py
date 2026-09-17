@@ -107,8 +107,21 @@ def is_summer_2027(title, description):
     return bool(re.search(r"\b2027\b", title) and re.search(r"\bsummer\b", description, re.I) and not re.search(r"\bsummer\s+202[0-689]\b", description, re.I))
 
 
+def is_internship(title):
+    """Require an internship title, excluding co-mingled permanent/new-grad roles.
+
+    Full-time hours, graduate-student internships and a later return offer do
+    not make an internship a full-time graduate vacancy.
+    """
+    title = str(title or '')
+    if not re.search(r"\bintern(?:ship)?s?\b", title, re.I):
+        return False
+    excluded = r"\b(?:new[ -]?grads?|new[ -]?graduates?|recent graduates?|entry[ -]level|permanent)\b|\binterns?\s*[/&]\s*graduates?\b|(?:/|\bor\b|\band\b|&)\s*full[ -]?time\b|\bfull[ -]?time\s*(?:/|\bor\b|\band\b|&)"
+    return not re.search(excluded, title, re.I)
+
+
 def is_relevant(title):
-    return bool(re.search(r"\bintern(?:ship)?\b", title, re.I) and ROLE_PATTERN.search(title)
+    return bool(is_internship(title) and (ROLE_PATTERN.search(title) or re.search(r'\btrad(?:er|ing)\b', title, re.I))
                 and not re.search(r"software support|customer care|people & culture|sales|marketing|recruit",title,re.I))
 
 

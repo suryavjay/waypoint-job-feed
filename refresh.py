@@ -4,6 +4,7 @@ import tempfile
 from pathlib import Path
 from internship_pipeline.ingestion import collect
 from internship_pipeline.sources.base import identity_fields
+from internship_pipeline.jobs import is_relevant
 from internship_pipeline.storage import Store, utcnow, write_json
 
 # Explicit allowlists prevent future private application fields entering the feed.
@@ -35,6 +36,8 @@ def refresh(output, collector=collect):
         rows = []
         for row in sorted(store.list_jobs(), key=lambda r: r['id']):
             job = public_job(row['job'])
+            if not is_relevant(job.get('title', '')):
+                continue
             url, ats, fallback = identity_fields(job)
             rows.append({'id': row['id'], 'job': job, 'first_seen': row['first_seen'], 'last_seen': row['last_seen'], 'canonical_url': url, 'ats_key': ats, 'dedupe_key': fallback})
         sources = [r.summary() for r in results]

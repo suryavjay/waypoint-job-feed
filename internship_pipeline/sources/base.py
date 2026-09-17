@@ -72,10 +72,13 @@ def identity_fields(job):
 
 
 def category_for(title, hint=''):
-    text=title+' '+str(hint)
-    if re.search(r'quant|trading|\bQR\b|\bQT\b|\bQD\b',text,re.I):return 'Quant'
-    if re.search(r'machine learning|artificial intelligence|\bAI\b|\bML\b|computer vision|deep learning',text,re.I):return 'ML / AI'
-    if re.search(r'data scien|data analy|analytics|data engineer',text,re.I):return 'Data'
+    # Source headings often combine "Data Science, AI & ML". Prefer the actual
+    # role title before using that broad heading as a fallback.
+    for text in (title, str(hint)):
+        if re.search(r'quant|\btrad(?:er|ing)\b|\bQR\b|\bQT\b|\bQD\b',text,re.I):return 'Quant'
+        if re.search(r'machine learning|artificial intelligence|\bAI\b|\bML\b|computer vision|deep learning',text,re.I):return 'ML / AI'
+        if re.search(r'data scien|data analy|analytics|data engineer',text,re.I):return 'Data'
+        if re.search(r'software|\bSWE\b|backend|front.?end|full.?stack|platform engineer|infrastructure engineer',text,re.I):return 'SWE'
     return 'SWE'
 
 
