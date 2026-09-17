@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-17 — Direct HRT internship coverage
+
+- Added HRT’s verified public Greenhouse board (`wehrtyou`) to priority company coverage. The company and existing requisition IDs matched the current employer API.
+- Live adapter verification returned three relevant Summer 2027 internships (software engineering, quant research/trading, and PhD quant research/trading) with full descriptions. Other seasons and permanent jobs were excluded.
+- Existing community leads remain; no scraper removed or schema changed.
+
 ## 2026-09-17 — Domain-style Ashby boards
 
 - Accept valid dotted Ashby board names, restoring checks for `persona.ai` and `rivianvw.tech`.

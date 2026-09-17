@@ -462,7 +462,12 @@
       "Quant",
       "SWE"
     ],
-    "boards": []
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "board": "wehrtyou"
+      }
+    ]
   },
   {
     "name": "Optiver",
