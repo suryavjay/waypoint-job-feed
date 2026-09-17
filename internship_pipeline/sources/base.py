@@ -55,8 +55,34 @@ def canonical_application_url(url):
 
 
 def normalized_location(value):
-    text=str(value).lower().replace('nyc','new york').replace('san fran','san francisco')
+    parts=[]
+    for location in str(value).lower().split(';'):
+        text=re.sub(r'\bnyc\b','new york, ny',location.strip())
+        text=re.sub(r'\bsan fran\b','san francisco',text)
+        text=re.sub(r'^sf(?=,|$)','san francisco, ca',text)
+        text=re.sub(r',\s*(?:united states(?: of america)?|usa|u\.s\.a?\.?)\s*$','',text)
+        text=re.sub(r',\s*california\b',', ca',text)
+        text=re.sub(r',\s*texas\b',', tx',text)
+        text=re.sub(r',\s*new york\b',', ny',text)
+        parts.append(re.sub(r'[^a-z0-9]','',text))
+    return ';'.join(sorted(set(p for p in parts if p)))
+
+
+def normalized_title(value):
+    text=str(value).lower()
+    text=re.sub(r'\bsummer\s*[,/-]?\s*2027\b|\b2027\s*[,/-]?\s*summer\b','',text)
+    text=re.sub(r'\binternships?\b','intern',text)
+    text=re.sub(r'\bsoftware engineering\b','software engineer',text)
     return re.sub(r'[^a-z0-9]','',text)
+
+
+def compatible_fallback(old,new):
+    """A weak company/title/location match cannot override distinct requisitions."""
+    old_url,old_ats,_=identity_fields(old);new_url,new_ats,_=identity_fields(new)
+    if old_ats and new_ats:return old_ats==new_ats
+    # Same-site different URLs can identify separate Workday/Google/etc. jobs.
+    if urlparse(old_url).hostname==urlparse(new_url).hostname and old_url!=new_url:return False
+    return True
 
 
 def identity_fields(job):
@@ -65,7 +91,7 @@ def identity_fields(job):
     identity=ats_identity(url)
     if not identity and job.get('ats') and job.get('ats_id'):identity=(job['ats'],job.get('board',''),str(job['ats_id']))
     ats_key=(identity[0]+':'+identity[2]) if identity else None
-    title=re.sub(r'[^a-z0-9]','',str(job.get('title','')).lower())
+    title=normalized_title(job.get('title',''))
     location=normalized_location(job.get('location',''))
     fallback='|'.join((company_key(job.get('company','')),title,location)) if title and location else None
     return url,ats_key,fallback

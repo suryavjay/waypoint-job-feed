@@ -83,7 +83,7 @@ class Store:
         return con
 
     def upsert_jobs(self, jobs):
-        from .sources.base import identity_fields, merge_jobs
+        from .sources.base import identity_fields, merge_jobs, compatible_fallback
         with self.connect() as con:
             for job in jobs:
                 url,ats,fallback=identity_fields(job)
@@ -92,7 +92,7 @@ class Store:
                     existing=con.execute("SELECT * FROM jobs WHERE canonical_url=? OR (? IS NOT NULL AND ats_key=?) ORDER BY first_seen LIMIT 1",(url,ats,ats)).fetchone()
                 if not existing and fallback:
                     candidates=con.execute("SELECT * FROM jobs WHERE dedupe_key=? ORDER BY first_seen",(fallback,)).fetchall()
-                    existing=next((r for r in candidates if not ats or not r['ats_key'] or r['ats_key']==ats),None)
+                    existing=next((r for r in candidates if compatible_fallback(json.loads(r['payload']),job)),None)
                 if existing:
                     job=merge_jobs(json.loads(existing['payload']),job)
                     job['id']=existing['id']

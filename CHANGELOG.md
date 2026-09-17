@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-17 — Conservative cross-board duplicate matching
+
+- Fixed San Francisco normalization; normalize location order, NYC/SF aliases and common US state spellings without collapsing different countries.
+- Match equivalent internship title wording and known company-name variants across boards.
+- Protect distinct same-site requisition URLs, distinct ATS IDs and PhD-specific titles from weak title/location matching.
+- Verification: fixtures cover successful merges, preserved private progress, and jobs that must remain distinct. Existing stored fields are reused; no schema change.
+
 ## 2026-09-17 — Direct HRT internship coverage
 
 - Added HRT’s verified public Greenhouse board (`wehrtyou`) to priority company coverage. The company and existing requisition IDs matched the current employer API.

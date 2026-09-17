@@ -9,7 +9,10 @@ def company_key(name):
     aliases={'nvidiacorporation':'nvidia','imctrading':'imc','susquehannainternationalgroup':'sig',
       'susquehanna':'sig','jpmorganchaseco':'jpmorganchase','jpmorgan':'jpmorganchase',
       'googlellc':'google','metaplatforms':'meta','amazoncom':'amazon',
-      'hudsonrivertradingllc':'hudsonrivertrading','americanexpresscompany':'americanexpress'}
+      'hudsonrivertradingllc':'hudsonrivertrading','americanexpresscompany':'americanexpress',
+      'palantirtechnologies':'palantir','towerresearchcapital':'towerresearch',
+      'jumptradinggroup':'jumptrading','susquehannainternationalgroupsig':'sig',
+      'cadencedesignsystems':'cadence','veeamsoftware':'veeam'}
     return aliases.get(text,text)
 
 
