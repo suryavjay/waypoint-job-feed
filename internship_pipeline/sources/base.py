@@ -147,13 +147,21 @@ def normalize(raw, *, source_key, source_name, source_url, company=None, term_hi
 
 
 def merge_jobs(old,new):
-    # An index must never overwrite richer official evidence with an empty description.
+    # Verification describes where the text came from, not whether the job is
+    # still open. Keep checked employer evidence after closure or source outage.
     result=dict(old)
-    old_official=old.get('active') is True and bool(old.get('description'))
-    new_official=not new.get('source_records') or any(s.get('authoritative') for s in new.get('source_records',[])) or bool(new.get('verified_at') and 'link_evidence' in new)
+    def official(job):
+        return bool(job.get('verified_at') and any(s.get('authoritative') for s in job.get('source_records',[])))
+    old_verified=official(old) and bool(old.get('description'))
+    new_verified=official(new) and bool(new.get('description'))
+    protected={'description','title','company','location','url','category','term','season_evidence','verified_at','activity_evidence','active','link_working','link_evidence','ats','board','ats_id','posted_at','deadline','work_mode','sponsorship','sponsorship_status','compensation'}
     for key,value in new.items():
         if key in ('id','sources','source_records'):continue
-        if value not in (None,'',[],{}) and (not old_official or new_official or result.get(key) in (None,'',[],{},'unknown')):result[key]=value
+        if old_verified and not new_verified and key in protected:continue
+        if value not in (None,'',[],{}):result[key]=value
+    # An empty employer response must not lend its verification stamp to a
+    # retained community description. A previous checked description is safe.
+    if official(new) and not new.get('description') and not old_verified:result['verified_at']=None
     records={x['key']:x for x in old.get('source_records',[])}
     records.update({x['key']:x for x in new.get('source_records',[])})
     result['source_records']=list(records.values())

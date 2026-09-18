@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-18 — Retain employer evidence after closure
+
+- Closed internships keep their checked employer description, dates and requirements when community copies refresh. Missing source provenance no longer counts as employer verification.
+- An empty employer description cannot stamp an older community summary as verified. Previously checked employer wording retains its original check date; a new complete employer description can still update or reopen the listing.
+- Verification: regression cases reproduced the previous failures before the fix; fixtures cover closure, missing provenance, empty descriptions, official updates and saved application history. No schema change or source removal.
+
 ## 2026-09-17 — Recover intermittent source failures
 
 - Retry a read once, after one second, for network timeouts/resets and HTTP 502/503/504. Other errors, including 404 and rate limits, keep their existing failure behavior.
