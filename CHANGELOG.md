@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-19 — Include frontend engineering internships
+
+- Fixed an omission in SWE title matching: Frontend, Front-End and Front End internships no longer require the word Software to be included.
+- Kept the internship, Summer 2027 and new-grad/full-time exclusions unchanged. No adapter, stored schema or dependency changes.
+- Baseline comparison across downloaded Simplify, ApplyGuy and Vansh feeds: 1,683 → 1,688 unique accepted URLs, with none removed. Five frontend listings were recovered.
+- Full refresh to a temporary output produced 1,714 listings (1,377 open) across 84 sources. The complete official Virtu board correctly marked its recovered old listing closed; the other four remain community leads. Whatnot's public Ashby API remains unavailable (404).
+- Verification: 26 tests pass, including frontend spellings, SWE classification, misleading nontechnical titles and mixed permanent/new-grad titles.
+- Employer cross-check: https://lifeattiktok.com/search/7669711026846058757 confirms a current frontend internship. Community descriptions remain unverified unless an existing employer adapter supplies evidence.
+
 ## 2026-09-18 — Retain employer evidence after closure
 
 - Closed internships keep their checked employer description, dates and requirements when community copies refresh. Missing source provenance no longer counts as employer verification.

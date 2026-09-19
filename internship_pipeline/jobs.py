@@ -24,7 +24,7 @@ DEFAULT_BOARDS = ("scaleai", "verkada", "schonfeld", "sage49", "waymo", "anduril
 COMPANIES = {"scaleai": "Scale AI", "verkada": "Verkada", "schonfeld": "Schonfeld", "sage49": "Sage", "waymo": "Waymo", "andurilindustries": "Anduril", "databricks": "Databricks", "figma": "Figma"}
 TIMEOUT = 15
 MAX_BYTES = 12_000_000
-ROLE_PATTERN = re.compile(r"software|\bSWE\b|backend|back.end|full.stack|machine learning|data scien|data analy|data engineer|computer vision|artificial intelligence|\bAI\b|\bML\b|platform engineer|infrastructure engineer|site reliability|FPGA|quantitative|\bquant\b", re.I)
+ROLE_PATTERN = re.compile(r"software|\bSWE\b|backend|back.end|\bfront[ -]?end\b|full.stack|machine learning|data scien|data analy|data engineer|computer vision|artificial intelligence|\bAI\b|\bML\b|platform engineer|infrastructure engineer|site reliability|FPGA|quantitative|\bquant\b", re.I)
 _CLOSED = re.compile(r"\b(?:this (?:job|position|role|opening) (?:is |has been )?(?:closed|filled|no longer available)|(?:we are |is )?no longer accepting applications|job (?:not found|no longer available)|position has been filled)\b", re.I)
 
 

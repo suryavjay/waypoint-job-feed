@@ -23,6 +23,22 @@ class InternshipScopeTests(unittest.TestCase):
                                 ('Machine Learning Intern', 'ML / AI'), ('Trader Intern', 'Quant')):
             self.assertEqual(category_for(title, 'Data Science, AI & ML'), expected)
 
+    def test_frontend_title_variants_are_software_internships(self):
+        for title in ('Frontend Developer Internship', 'Frontend Engineer Intern - Global CRM',
+                      'Front-End Engineering Intern', 'Front End Developer Intern',
+                      'Frontend & User Experience Intern'):
+            with self.subTest(title=title):
+                self.assertTrue(is_relevant(title))
+                self.assertEqual(category_for(title, 'Software'), 'SWE')
+                job = normalize({'company': 'Example', 'title': title, 'season': 'Summer 2027',
+                                 'url': 'https://example.com/internship'},
+                                source_key='fixture', source_name='Fixture', source_url='https://example.com')
+                self.assertIsNotNone(job)
+                self.assertEqual(job['category'], 'SWE')
+        for title in ('Frontend Engineer New Grad 2027', 'Frontend Intern / Full-Time',
+                      'Frontend Marketing Intern', 'Store Front Intern'):
+            self.assertFalse(is_relevant(title))
+
     def test_description_return_offer_is_not_a_permanent_role(self):
         job = normalize({'company': 'Example', 'title': 'Software Intern Summer 2027',
                          'description': 'Full-time internship. May lead to a new grad return offer. Graduation in 2028.',
