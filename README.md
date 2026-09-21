@@ -2,7 +2,7 @@
 
 A jobs-only updater for Waypoint. No resume, candidate profile, notes, saved roles, or application history belongs in this repository.
 
-GitHub Actions runs `.github/workflows/refresh.yml` hourly at minute 37 UTC, independently of any personal computer. GitHub may delay scheduled runs. The workflow can also be started from Actions → Refresh internship listings → Run workflow.
+GitHub Actions schedules `.github/workflows/refresh.yml` every 30 minutes, at minutes 7 and 37 UTC, independently of any personal computer. GitHub may delay or skip scheduled runs, so this is a requested cadence rather than a guaranteed freshness interval. The workflow can also be started from Actions → Refresh internship listings → Run workflow. See [GitHub's schedule limitations](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 Sources: four community GitHub feeds and up to 80 discovered/configured Greenhouse, Lever, and Ashby public boards. No LinkedIn, Indeed, or Handshake scraping. Failed or incomplete boards do not close listings. Deduplication uses canonical application URL, ATS identity, then company + role + location. Distinct official posting IDs remain distinct.
 
@@ -17,4 +17,4 @@ The private dashboard checks this feed automatically when opened and every five 
 3. Run the workflow once and confirm the green check and `feed/jobs.json`.
 4. Set the private dashboard's `JOB_FEED_URL` to the raw URL of that file. No private credentials belong in this public repository.
 
-GitHub can disable public scheduled workflows after 60 days without repository activity. Successful hourly feed commits provide activity. Check Actions if the dashboard warns that its feed is stale.
+GitHub can disable public scheduled workflows after 60 days without repository activity. Successful feed commits provide activity. Check Actions if the dashboard warns that its feed is stale.

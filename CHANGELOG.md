@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-20 — Request refreshes every 30 minutes
+
+- Schedule checks at minutes 7 and 37 UTC. Recent successful hourly-scheduled runs were separated by multiple hours, so the requested cadence is now 30 minutes, away from the start-of-hour load peak.
+- GitHub still controls scheduling delays and may skip runs. The README distinguishes requested cadence from actual freshness; the private dashboard shows the actual last successful update.
+- Existing serialized execution, 20-minute timeout, source-failure safeguards and jobs-only publication remain unchanged. No additional service, API key, scraper or dependency.
+
 ## 2026-09-19 — Include frontend engineering internships
 
 - Fixed an omission in SWE title matching: Frontend, Front-End and Front End internships no longer require the word Software to be included.
